@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use Illuminate\Http\Request;
 use App\Models\estudiante_detalle;
+use App\Models\fnSeguimiento;
 
 class PagesController extends Controller
 {
@@ -24,6 +25,13 @@ class PagesController extends Controller
     public function fnEstActualizar($id){
         $xActAlumnos = Estudiante::findOrFail($id);
         return view('Estudiante.pagActualizar', compact('xActAlumnos'));
+
+    }
+
+
+    public function fnSeguimiento() {
+        $xAlumnos = Estudiante::all();
+        return view('pagSeguimiento', compact('xAlumnos'));
 
     }
 
